@@ -116,9 +116,19 @@ const Index = () => {
           <div className="lg:col-span-8">
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <Tabs defaultValue="avatar" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 mb-6">
-                  <TabsTrigger value="avatar" className="text-base">Choose Avatar</TabsTrigger>
-                  <TabsTrigger value="color" className="text-base">Choose Color</TabsTrigger>
+                <TabsList className="grid w-full grid-cols-2 mb-8 h-12 bg-gray-100 rounded-xl p-1">
+                  <TabsTrigger 
+                    value="avatar" 
+                    className="text-base font-semibold py-2.5 px-6 rounded-lg data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm transition-all duration-200"
+                  >
+                    Choose Avatar
+                  </TabsTrigger>
+                  <TabsTrigger 
+                    value="color" 
+                    className="text-base font-semibold py-2.5 px-6 rounded-lg data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm transition-all duration-200"
+                  >
+                    Choose Color
+                  </TabsTrigger>
                 </TabsList>
                 
                 <TabsContent value="avatar" className="mt-0">
