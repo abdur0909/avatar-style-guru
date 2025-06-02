@@ -81,41 +81,41 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Main Content - Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Left Side - Avatar Preview */}
-          <div className="lg:col-span-4">
-            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-8">
-              <AvatarPreview 
-                selectedAvatar={selectedAvatar} 
-                selectedColor={selectedColor}
-              />
-              
-              <div className="mt-6 p-4 bg-gray-50 rounded-xl">
-                <h4 className="font-semibold text-gray-900 mb-2">Avatar Details</h4>
-                <div className="space-y-2 text-sm text-gray-600">
-                  <div className="flex justify-between">
-                    <span>Style:</span>
-                    <span className="font-medium">{selectedAvatar}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Color:</span>
-                    <div className="flex items-center space-x-2">
-                      <div 
-                        className="w-4 h-4 rounded-full border border-gray-300"
-                        style={{ backgroundColor: selectedColor }}
-                      />
-                      <span className="font-medium">{selectedColor}</span>
+        {/* Unified Avatar Builder */}
+        <div className="bg-white rounded-2xl shadow-lg p-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            {/* Left Side - Avatar Preview */}
+            <div className="lg:col-span-4">
+              <div className="sticky top-8">
+                <AvatarPreview 
+                  selectedAvatar={selectedAvatar} 
+                  selectedColor={selectedColor}
+                />
+                
+                <div className="mt-6 p-4 bg-gray-50 rounded-xl">
+                  <h4 className="font-semibold text-gray-900 mb-2">Avatar Details</h4>
+                  <div className="space-y-2 text-sm text-gray-600">
+                    <div className="flex justify-between">
+                      <span>Style:</span>
+                      <span className="font-medium">{selectedAvatar}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Color:</span>
+                      <div className="flex items-center space-x-2">
+                        <div 
+                          className="w-4 h-4 rounded-full border border-gray-300"
+                          style={{ backgroundColor: selectedColor }}
+                        />
+                        <span className="font-medium">{selectedColor}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Right Side - Customization Options */}
-          <div className="lg:col-span-8">
-            <div className="bg-white rounded-2xl shadow-lg p-8">
+            {/* Right Side - Customization Options */}
+            <div className="lg:col-span-8">
               <Tabs defaultValue="avatar" className="w-full">
                 <TabsList className="grid w-full grid-cols-2 mb-8 h-12 bg-white rounded-none p-0 border-b border-gray-200">
                   <TabsTrigger 
