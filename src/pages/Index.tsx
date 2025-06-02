@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -47,7 +48,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="container mx-auto px-4 py-8 max-w-6xl">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
           <div>
@@ -80,67 +81,73 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Unified Avatar Customization */}
-        <div className="bg-white rounded-2xl shadow-lg p-8">
-          {/* Avatar Preview Section */}
-          <div className="flex flex-col items-center mb-8">
-            <AvatarPreview 
-              selectedAvatar={selectedAvatar} 
-              selectedColor={selectedColor}
-            />
-            
-            <div className="mt-6 p-4 bg-gray-50 rounded-xl">
-              <h4 className="font-semibold text-gray-900 mb-2">Avatar Details</h4>
-              <div className="space-y-2 text-sm text-gray-600">
-                <div className="flex justify-between">
-                  <span>Style:</span>
-                  <span className="font-medium">{selectedAvatar}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Color:</span>
-                  <div className="flex items-center space-x-2">
-                    <div 
-                      className="w-4 h-4 rounded-full border border-gray-300"
-                      style={{ backgroundColor: selectedColor }}
-                    />
-                    <span className="font-medium">{selectedColor}</span>
+        {/* Main Content - Two Column Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Left Side - Avatar Preview */}
+          <div className="lg:col-span-4">
+            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-8">
+              <AvatarPreview 
+                selectedAvatar={selectedAvatar} 
+                selectedColor={selectedColor}
+              />
+              
+              <div className="mt-6 p-4 bg-gray-50 rounded-xl">
+                <h4 className="font-semibold text-gray-900 mb-2">Avatar Details</h4>
+                <div className="space-y-2 text-sm text-gray-600">
+                  <div className="flex justify-between">
+                    <span>Style:</span>
+                    <span className="font-medium">{selectedAvatar}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Color:</span>
+                    <div className="flex items-center space-x-2">
+                      <div 
+                        className="w-4 h-4 rounded-full border border-gray-300"
+                        style={{ backgroundColor: selectedColor }}
+                      />
+                      <span className="font-medium">{selectedColor}</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Customization Tabs */}
-          <Tabs defaultValue="avatar" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-8 h-12 bg-white rounded-none p-0 border-b border-gray-200">
-              <TabsTrigger 
-                value="avatar" 
-                className="relative text-base font-medium py-3 px-6 rounded-none border-b-2 border-transparent data-[state=active]:border-blue-500 data-[state=active]:text-blue-600 data-[state=active]:bg-transparent text-gray-600 hover:text-gray-900 transition-all duration-200 data-[state=active]:shadow-none bg-transparent"
-              >
-                Choose Avatar
-              </TabsTrigger>
-              <TabsTrigger 
-                value="color" 
-                className="relative text-base font-medium py-3 px-6 rounded-none border-b-2 border-transparent data-[state=active]:border-blue-500 data-[state=active]:text-blue-600 data-[state=active]:bg-transparent text-gray-600 hover:text-gray-900 transition-all duration-200 data-[state=active]:shadow-none bg-transparent"
-              >
-                Choose Color
-              </TabsTrigger>
-            </TabsList>
-            
-            <TabsContent value="avatar" className="mt-0">
-              <AvatarSelector 
-                selectedAvatar={selectedAvatar}
-                onAvatarSelect={setSelectedAvatar}
-              />
-            </TabsContent>
-            
-            <TabsContent value="color" className="mt-0">
-              <ColorSelector 
-                selectedColor={selectedColor}
-                onColorSelect={setSelectedColor}
-              />
-            </TabsContent>
-          </Tabs>
+          {/* Right Side - Customization Options */}
+          <div className="lg:col-span-8">
+            <div className="bg-white rounded-2xl shadow-lg p-8">
+              <Tabs defaultValue="avatar" className="w-full">
+                <TabsList className="grid w-full grid-cols-2 mb-8 h-12 bg-white rounded-none p-0 border-b border-gray-200">
+                  <TabsTrigger 
+                    value="avatar" 
+                    className="relative text-base font-medium py-3 px-6 rounded-none border-b-2 border-transparent data-[state=active]:border-blue-500 data-[state=active]:text-blue-600 data-[state=active]:bg-transparent text-gray-600 hover:text-gray-900 transition-all duration-200 data-[state=active]:shadow-none bg-transparent"
+                  >
+                    Choose Avatar
+                  </TabsTrigger>
+                  <TabsTrigger 
+                    value="color" 
+                    className="relative text-base font-medium py-3 px-6 rounded-none border-b-2 border-transparent data-[state=active]:border-blue-500 data-[state=active]:text-blue-600 data-[state=active]:bg-transparent text-gray-600 hover:text-gray-900 transition-all duration-200 data-[state=active]:shadow-none bg-transparent"
+                  >
+                    Choose Color
+                  </TabsTrigger>
+                </TabsList>
+                
+                <TabsContent value="avatar" className="mt-0">
+                  <AvatarSelector 
+                    selectedAvatar={selectedAvatar}
+                    onAvatarSelect={setSelectedAvatar}
+                  />
+                </TabsContent>
+                
+                <TabsContent value="color" className="mt-0">
+                  <ColorSelector 
+                    selectedColor={selectedColor}
+                    onColorSelect={setSelectedColor}
+                  />
+                </TabsContent>
+              </Tabs>
+            </div>
+          </div>
         </div>
 
         {/* Additional Features */}
