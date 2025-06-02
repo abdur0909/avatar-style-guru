@@ -21,7 +21,7 @@ const Index = () => {
   };
 
   const handleRandomAvatar = () => {
-    const avatars = ['👩‍💼', '👨‍💼', '👩‍🎨', '👨‍🎨', '👩‍💻', '👨‍💻', '👩‍🎓', '👨‍🎓'];
+    const avatars = ['👩‍💼', '👨‍💼', '👩‍🎨', '👨‍🎨', '👩‍💻', '👨‍💻', '👩‍🎓', '👨‍🎓', '🧑‍🎤', '👩‍🔬', '👨‍🍳', '👩‍⚕️', '👨‍⚕️', '👩‍🏫', '👨‍🏫', '👩‍🚀', '👨‍🚀'];
     const colors = ['#3B82F6', '#EF4444', '#10B981', '#F59E0B', '#8B5CF6', '#EC4899', '#06B6D4', '#84CC16'];
     
     const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
@@ -48,7 +48,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
+      <div className="container mx-auto px-4 py-8 max-w-7xl">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
           <div>
@@ -81,12 +81,12 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Unified Avatar Builder */}
-        <div className="bg-white rounded-2xl shadow-lg p-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            {/* Left Side - Avatar Preview */}
-            <div className="lg:col-span-4">
-              <div className="sticky top-8">
+        {/* Main Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Left Side - Fixed Avatar Preview */}
+          <div className="lg:col-span-4">
+            <div className="sticky top-8">
+              <div className="bg-white rounded-2xl shadow-lg p-8">
                 <AvatarPreview 
                   selectedAvatar={selectedAvatar} 
                   selectedColor={selectedColor}
@@ -113,9 +113,11 @@ const Index = () => {
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Right Side - Customization Options */}
-            <div className="lg:col-span-8">
+          {/* Right Side - Customization Options */}
+          <div className="lg:col-span-8">
+            <div className="bg-white rounded-2xl shadow-lg p-8">
               <Tabs defaultValue="avatar" className="w-full">
                 <TabsList className="grid w-full grid-cols-2 mb-8 h-12 bg-white rounded-none p-0 border-b border-gray-200">
                   <TabsTrigger 
@@ -161,7 +163,7 @@ const Index = () => {
               </div>
               <h3 className="font-semibold text-gray-900">Easy Customization</h3>
             </div>
-            <p className="text-gray-600 text-sm">Simple and intuitive interface for creating the perfect avatar</p>
+            <p className="text-gray-600 text-sm">Simple slider navigation through avatar options with responsive design</p>
           </div>
 
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
@@ -173,7 +175,7 @@ const Index = () => {
               </div>
               <h3 className="font-semibold text-gray-900">Live Preview</h3>
             </div>
-            <p className="text-gray-600 text-sm">See your changes instantly as you customize your avatar</p>
+            <p className="text-gray-600 text-sm">Fixed preview panel shows changes instantly as you browse through avatars</p>
           </div>
 
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
@@ -183,9 +185,9 @@ const Index = () => {
                   <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1V8zm8 0a1 1 0 011-1h4a1 1 0 011 1v6a1 1 0 01-1 1h-4a1 1 0 01-1-1V8z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="font-semibold text-gray-900">More Options</h3>
+              <h3 className="font-semibold text-gray-900">Touch & Swipe</h3>
             </div>
-            <p className="text-gray-600 text-sm">Additional avatar styles and customization options coming soon</p>
+            <p className="text-gray-600 text-sm">Mobile-friendly carousel with touch support and navigation arrows</p>
           </div>
         </div>
       </div>
