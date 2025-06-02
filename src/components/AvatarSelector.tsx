@@ -95,22 +95,22 @@ const AvatarSelector = ({ selectedAvatar, onAvatarSelect }: AvatarSelectorProps)
             </div>
           ) : (
             // Carousel for more than 4 items
-            <div className="px-8">
+            <div className="px-4 sm:px-8 relative">
               <Carousel
                 opts={{
                   align: "start",
                 }}
                 className="w-full"
               >
-                <CarouselContent className="py-8">
+                <CarouselContent className="py-8 ml-0">
                   {avatars.map((avatar) => (
-                    <CarouselItem key={avatar.id} className="md:basis-1/3 lg:basis-1/4">
+                    <CarouselItem key={avatar.id} className="pl-4 basis-4/5 sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
                       {renderAvatarItem(avatar)}
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious className="-left-4" />
-                <CarouselNext className="-right-4" />
+                <CarouselPrevious className="left-0 sm:-left-4" />
+                <CarouselNext className="right-0 sm:-right-4" />
               </Carousel>
             </div>
           )}
