@@ -1,14 +1,15 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Shuffle, RotateCcw } from 'lucide-react';
+import { Shuffle, RotateCcw, Settings } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import AvatarPreview from '@/components/AvatarPreview';
 import AvatarSelector from '@/components/AvatarSelector';
 import ColorSelector from '@/components/ColorSelector';
 import { useToast } from '@/hooks/use-toast';
 
 const Index = () => {
+  const navigate = useNavigate();
   const [selectedAvatar, setSelectedAvatar] = useState('👩‍💼');
   const [selectedColor, setSelectedColor] = useState('#3B82F6');
   const { toast } = useToast();
@@ -56,6 +57,14 @@ const Index = () => {
             <p className="text-gray-600">Customize your profile appearance with our modern avatar builder</p>
           </div>
           <div className="flex items-center space-x-3 mt-4 md:mt-0">
+            <Button
+              variant="outline"
+              onClick={() => navigate('/settings')}
+              className="flex items-center space-x-2"
+            >
+              <Settings className="w-4 h-4" />
+              <span>Settings</span>
+            </Button>
             <Button
               variant="outline"
               onClick={handleRandomAvatar}
