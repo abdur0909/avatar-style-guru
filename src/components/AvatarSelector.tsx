@@ -84,24 +84,36 @@ const AvatarSelector = ({ selectedAvatar, onAvatarSelect }: AvatarSelectorProps)
         <div key={category}>
           <h3 className="text-lg font-semibold text-gray-900 mb-4">{category}</h3>
           
-          <div className="px-8">
-            <Carousel
-              opts={{
-                align: "start",
-              }}
-              className="w-full"
-            >
-              <CarouselContent className="py-8">
-                {avatars.map((avatar) => (
-                  <CarouselItem key={avatar.id} className="md:basis-1/3 lg:basis-1/4">
-                    {renderAvatarItem(avatar)}
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="-left-4" />
-              <CarouselNext className="-right-4" />
-            </Carousel>
-          </div>
+          {avatars.length <= 4 ? (
+            // Simple grid for 4 or fewer items
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {avatars.map((avatar) => (
+                <div key={avatar.id}>
+                  {renderAvatarItem(avatar)}
+                </div>
+              ))}
+            </div>
+          ) : (
+            // Carousel for more than 4 items
+            <div className="px-8">
+              <Carousel
+                opts={{
+                  align: "start",
+                }}
+                className="w-full"
+              >
+                <CarouselContent className="py-8">
+                  {avatars.map((avatar) => (
+                    <CarouselItem key={avatar.id} className="md:basis-1/3 lg:basis-1/4">
+                      {renderAvatarItem(avatar)}
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="-left-4" />
+                <CarouselNext className="-right-4" />
+              </Carousel>
+            </div>
+          )}
         </div>
       ))}
     </div>
