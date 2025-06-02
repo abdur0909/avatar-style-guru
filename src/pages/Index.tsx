@@ -84,9 +84,9 @@ const Index = () => {
         {/* Unified Avatar Builder */}
         <div className="bg-white rounded-2xl shadow-lg p-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            {/* Left Side - Fixed Avatar Preview */}
+            {/* Left Side - Avatar Preview */}
             <div className="lg:col-span-4">
-              <div className="fixed lg:relative lg:sticky top-8 z-10 bg-white rounded-xl p-4 shadow-lg lg:shadow-none">
+              <div className="sticky top-8">
                 <AvatarPreview 
                   selectedAvatar={selectedAvatar} 
                   selectedColor={selectedColor}
@@ -115,7 +115,7 @@ const Index = () => {
             </div>
 
             {/* Right Side - Customization Options */}
-            <div className="lg:col-span-8 mt-80 lg:mt-0">
+            <div className="lg:col-span-8">
               <Tabs defaultValue="avatar" className="w-full">
                 <TabsList className="grid w-full grid-cols-2 mb-8 h-12 bg-white rounded-none p-0 border-b border-gray-200">
                   <TabsTrigger 
