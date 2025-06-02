@@ -48,7 +48,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
+      <div className="container mx-auto px-4 py-8 max-w-4xl">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
           <div>
@@ -81,10 +81,10 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="grid grid-cols-1 gap-8">
           {/* Avatar Preview */}
-          <div className="lg:col-span-4">
-            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-8">
+          <div>
+            <div className="bg-white rounded-2xl shadow-lg p-8">
               <AvatarPreview 
                 selectedAvatar={selectedAvatar} 
                 selectedColor={selectedColor}
@@ -113,7 +113,7 @@ const Index = () => {
           </div>
 
           {/* Customization Options */}
-          <div className="lg:col-span-8">
+          <div>
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <Tabs defaultValue="avatar" className="w-full">
                 <TabsList className="grid w-full grid-cols-2 mb-8 h-12 bg-white rounded-none p-0 border-b border-gray-200">
